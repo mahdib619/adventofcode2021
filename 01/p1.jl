@@ -1,0 +1,12 @@
+counter = 0
+open("input.txt") do f
+    pre = parse(Int, readline(f))
+    for l in eachline(f)
+        l = parse(Int, l)
+        if l > pre
+            global counter += 1
+        end
+        pre = l
+    end
+end
+print("$counter measurements are larger than the previous measurement")
