@@ -3,7 +3,7 @@ ups = Vector{Int8}()
 downs = Vector{Int8}()
 arrs = Dict('f' => forwards, 'u' => ups, 'd' => downs)
 
-open("input.txt") do f
+open(joinpath(Base.source_dir(),"input.txt")) do f
     for l in eachline(f)
         num = parse(Int8,l[findfirst(' ', l)+1:end])
         push!(arrs[l[1]], num)

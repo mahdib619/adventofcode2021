@@ -1,4 +1,4 @@
-nums = map(x -> parse(Int32, x), readlines("input.txt"))
+nums = map(x -> parse(Int32, x), readlines(joinpath(Base.source_dir(),"input.txt")))
 counter = 0
 pre = typemax(Int32)
 for i = 1:length(nums) - 2

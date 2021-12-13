@@ -1,5 +1,5 @@
 counter = 0
-open("input.txt") do f
+open(joinpath(Base.source_dir(),"input.txt")) do f
     pre = parse(Int, readline(f))
     for l in eachline(f)
         l = parse(Int, l)
