@@ -57,14 +57,13 @@ function getNumber(pattern, segments)
 end
 
 sumN = 0
-i = 1
-ls = readlines(joinpath(Base.source_dir(), "input.txt"))
-for line in ls
-    println(i)
-    sigpat = split(line, " | ")
-    patterns = split(sigpat[1])
-    segments = split(sigpat[2])
-
-    global sumN += getNumber(patterns, segments)
-    global i += 1
+open(joinpath(Base.source_dir(), "input.txt")) do file
+    for line in eachline(file)
+        sigpat = split(line, " | ")
+        patterns = split(sigpat[1])
+        segments = split(sigpat[2])
+    
+        global sumN += getNumber(patterns, segments)
+    end
 end
+println("Result $sumN")
